@@ -1,0 +1,30 @@
+body{
+    background-color: #251C1C;
+    margin: 0;
+}
+
+.title-div {
+    background-color: #D13E3E;
+    width: 100vw;
+    height: 50vh;
+    position: absolute;
+    top: 20%;
+}
+
+.title-holder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.start {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+span {
+    display: flex;
+    justify-content: end;
+    color: aliceblue;
+}
