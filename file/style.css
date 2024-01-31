@@ -1,3 +1,5 @@
+
+
 body{
     background-color: #251C1C;
     margin: 0;
@@ -23,8 +25,25 @@ body{
     justify-content: center;
 }
 
+.vt323-regular {
+    font-family: "VT323", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.start button{
+    color: whitesmoke;
+    padding: 10px 30px;
+    border: none;
+    background: none;
+    font-size: 35px;
+    font-family: "VT323";
+}
+
 span {
-    display: flex;
-    justify-content: end;
+    display: inline-block;
+    position: relative;
+    bottom: 0;
     color: aliceblue;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
