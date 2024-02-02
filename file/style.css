@@ -40,9 +40,13 @@ body{
     font-family: "VT323";
 }
 
+.start button:hover{
+    font-size: 40px;
+}
+
 span {
-    display: inline-block;
-    position: relative;
+    display: inline;
+    position: fixed;
     bottom: 0;
     color: aliceblue;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

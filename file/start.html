@@ -18,7 +18,7 @@
         </div>
 
         <div class="start">
-            <button>Start</button>
+            <button id="startButton">Start</button>
         </div>
 
         <span>
@@ -26,4 +26,14 @@
         </span>
     </div>
 </body>
+
+<script>
+   function toggleButton() {
+        const button = document.querySelector('button');
+        button.style.display = button.style.display === 'none' ? 'block' : 'none';
+    }
+
+    setInterval(toggleButton, 500);
+
+</script>
 </html>
