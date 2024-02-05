@@ -47,6 +47,10 @@ h2{
     justify-content: center;
 }
 
+#display-container > img {
+    border-radius: 7px;
+}
+
 #controls{
     display: flex;
     align-items: center;
@@ -61,11 +65,13 @@ h2{
     height: 110px;
     text-align: center;
     padding: 6px;
+    border-radius: 7px;
 }
 
 #info-ctn > div {
     background-color: #EEECEC;
     height: 110px;
+    border-radius: 6px;
 }
 
 #move-ctn{
@@ -74,9 +80,11 @@ h2{
     height: 110px;
     text-align: center;
     padding: 6px;
+    border-radius: 7px;
 }
 
 #move-ctn > div {
     background-color: #EEECEC;
     height: 110px;
+    border-radius: 6px;
 }
