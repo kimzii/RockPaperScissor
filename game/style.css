@@ -11,5 +11,72 @@ body{
 }
 
 #header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 60px 10px 60px;
+}
+
+a{
+    text-decoration: none;
+}
+
+h2{
     color: aliceblue;
+    display: inline;
+}
+
+#refresh-btn {
+    background-color: #251C1C;
+    border: none;
+}
+
+#refresh-btn > img{
+    width: 30px;
+    transition: transform 0.3s ease;
+}
+
+#refresh-btn > img:hover {
+    width: 25px;
+    filter: drop-shadow(0 0 0.75rem black);
+}
+
+#display-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#controls{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 8px 0 8px 0;
+}
+
+#info-ctn{
+    background-color: #70BDCD;
+    width: 500px;
+    height: 110px;
+    text-align: center;
+    padding: 6px;
+}
+
+#info-ctn > div {
+    background-color: #EEECEC;
+    height: 110px;
+}
+
+#move-ctn{
+    background-color: #70BDCD;
+    width: 300px;
+    height: 110px;
+    text-align: center;
+    padding: 6px;
+}
+
+#move-ctn > div {
+    background-color: #EEECEC;
+    height: 110px;
 }
