@@ -110,9 +110,10 @@ h2{
     border: none;
     font-family: "VT323";
     font-size: 20px;
-    padding: 7px;
+    padding: 8.3px;
     font-weight: bold;
     color: #4b4949;
+    border-radius: 6px;
 }
 
 #move-ctn > div > button:hover{
