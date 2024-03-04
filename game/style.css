@@ -7,14 +7,14 @@
 body{
     background-color: #251C1C;
     margin: 0;
-    font-family: "VT323";
+    font-family: "VT323"    ;
 }
 
 #header{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    padding: 10px 60px 10px 60px;
+    padding: 10px 40px 10px 30px;
 }
 
 #header > div {
@@ -57,7 +57,17 @@ h2{
     left:50%;
     transform: translateX(-50%);
 }
+#enemy-hp{
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
 
+#player-hp{
+    position: relative;
+    bottom: -170px;
+    left: 600px;
+}
 #enemy-hp {
     background-color: #494844;
     width: 200px;
@@ -151,4 +161,33 @@ h2{
 
 #move-ctn > div > button:hover{
     background-color: #afa6a6;
+}
+
+#enemy-hp div p{
+    position: relative;
+    top: 20px;
+    left: 130px;
+}
+
+#enemy-hp div span{
+    position: relative;
+    bottom: -20px;
+    left: 10px;
+}
+
+#player-hp div p{
+    position: relative;
+    top: 20px;
+    left: 130px;
+}
+
+#player-hp div span{
+    position: relative;
+    bottom: -20px;
+    left: 10px;
+}
+
+#container{
+    margin: auto;
+    width: 840px;
 }
