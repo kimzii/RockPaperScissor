@@ -86,6 +86,7 @@ h2 {
   width: 150px;
   height: 10px;
   background-color: lightgreen;
+  border: 1px solid green;
 }
 
 #enemy-hp .hp-ctn,
