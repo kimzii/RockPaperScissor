@@ -1,6 +1,20 @@
 let playerScore = 0;
 let computerScore = 0;
 
+
+function toggleAudio() {
+    const audio = document.getElementById("background-audio");
+    const img = document.querySelector('#audio-button img');
+
+    if (audio.paused) {
+        audio.play();
+        img.src = '../resources/audio.png';
+    } else {
+        audio.pause();
+        img.src = '../resources/audio-off.png';
+    }
+}
+
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3) + 1;
     const img = document.querySelector('#enemy-pokemon'); 
@@ -111,6 +125,9 @@ function play(playerMove, computerMove) {
     const img = document.querySelector('#player-pokemon');
     const movectn = document.querySelector('#move-ctn');
     movectn.style.display = 'block';
+
+    const buttonAudio = document.getElementById("button-audio");
+    buttonAudio.play();
     
     if(playerMove == 1) {
         img.src = '../resources/charmander-back.png';

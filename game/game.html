@@ -18,7 +18,16 @@
         <div id="header">
             <a href="../index.html"><h2>Rock Paper Scissor</h2></a>
             <div>
-                <button id="refresh-btn" onclick="displayMoves()"><img src="../resources/refresh-btn.png"alt="refresh" width="30px"></button>
+                <button id="audio-button" onclick="toggleAudio()">
+                    <img src="../resources/audio.png" alt="" width="30px">
+                    <audio id="background-audio" src="../resources/Trainer Battle - Pokémon RedBlueYellow Soundtrack.mp3" autoplay></audio>
+                </button>
+                
+
+                <button id="refresh-btn" onclick="displayMoves()">
+                    <img src="../resources/refresh-btn.png"alt="refresh" width="30px">
+                </button>           
+
             </div>
         </div>
 
@@ -55,6 +64,8 @@
                 </div>
             </div>
             <div id="move-ctn">
+                <audio id="button-audio" src="../resources/Pokemon (A Button) - Sound Effect (HD).mp3"></audio>
+
                 <div>
                     <button onclick="play(1, getComputerChoice())" id="fire-move">Charmander</button>
                     <button onclick="play(2, getComputerChoice())" id="water-move">Squirtle</button>
