@@ -20,26 +20,24 @@ function getComputerChoice() {
     const img = document.querySelector('#enemy-pokemon'); 
 
     let choice;
-    switch(computerChoice) {
-        case 1:
-            choice = "charmander";
-            setTimeout(function() {
+    img.style.opacity = 0; // Start fade-out
+    setTimeout(function() {
+        switch(computerChoice) {
+            case 1:
+                choice = "charmander";
                 img.src = '../resources/charmander.png';
-            }, 500);
-            break;
-        case 2:
-            choice = "squirtle";
-            setTimeout(function() {
+                break;
+            case 2:
+                choice = "squirtle";
                 img.src = '../resources/squirtle.png';
-            }, 500);
-            break;
-        default:
-            choice = "bulbasaur";
-            setTimeout(function() {
+                break;
+            default:
+                choice = "bulbasaur";
                 img.src = '../resources/bulbasaur.png';
-            }, 500);
-            break;
-    }
+                break;
+        }
+        img.style.opacity = 1; // Start fade-in
+    }, 500);
 
     return choice;
 }
@@ -112,20 +110,20 @@ function score(winner, message) {
         outputMessage.textContent = message;
     }, 500);
 
-
-    if(winner == "win") {
-        playerScore ++;
-        setTimeout(function() {
+        if(winner == "win") {
+            playerScore ++;
+            setTimeout(function() {
             newWidth = currentenemyhp - 30;
             enemyhp.style.width = newWidth + 'px';
-        }, 500);
-    }else {
-        computerScore ++;
-        setTimeout(function() {
-            newWidth = currentplayerhp - 30;
-            playerhp.style.width = newWidth + 'px';
-        }, 500);
-    }
+            }, 500);
+        }else if (winner == "lose") {
+            computerScore ++;
+            setTimeout(function() {
+                newWidth = currentplayerhp - 30;
+                playerhp.style.width = newWidth + 'px';
+            }, 500);
+        }
+    
 
     console.log("Scores:")
     console.log(playerScore);
@@ -141,21 +139,19 @@ function play(playerMove, computerMove) {
     const buttonAudio = document.getElementById("button-audio");
     buttonAudio.play();
     
-    if(playerMove == 1) {
-        setTimeout(function() {
+    img.style.opacity = 0;
+    setTimeout(function() {
+        if (playerMove == 1) {
             img.src = '../resources/charmander-back.png';
-        }, 500);
-    }
-    else if(playerMove == 2) {
-        setTimeout(function() {
+            img.style.opacity = 1; // Start fade-in
+        } else if (playerMove == 2) {
             img.src = '../resources/squirtle-back.png';
-        }, 500);
-    }
-    else{
-        setTimeout(function() {
+            img.style.opacity = 1; // Start fade-in
+        } else {
             img.src = '../resources/bulbasaur-back.png';
-        }, 500);
-    }
+            img.style.opacity = 1; // Start fade-in
+        }
+    }, 500);
 
         playRound(playerMove, computerMove);
         checkWinner();
@@ -181,10 +177,14 @@ function checkWinner() {
 
     if (playerScore >= 5 || computerScore >= 5) {
         if (playerScore >= 5) {
-            outputMessage.textContent = "Game Over! You Win the Game!";
+            setTimeout(function() {
+                outputMessage.textContent = "Game Over! You Win the Game!";
+            }, 2000);
 
         } else if (computerScore >= 5) {
-            outputMessage.textContent = "Game Over! Computer Wins the Game!";
+            setTimeout(function() {
+                outputMessage.textContent = "Game Over! Computer Wins the Game!";
+            }, 2000);
         }
         movectn.style.display = 'none';
     }

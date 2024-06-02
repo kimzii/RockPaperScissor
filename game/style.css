@@ -39,12 +39,6 @@ h2 {
   transition: transform 0.3s ease;
 }
 
-#refresh-btn > img:hover {
-  width: 27px;
-  height: 27px;
-  filter: drop-shadow(0 0 0.75rem black);
-}
-
 #audio-button{
   background-color: #251c1c;
   border: none;
@@ -187,3 +181,9 @@ h2 {
   width: 840px;
 }
 
+/*pokemon img transition*/
+
+.pokemon-ctn img {
+  transition: opacity 0.5s ease;
+  opacity: 1;
+}
