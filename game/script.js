@@ -23,15 +23,21 @@ function getComputerChoice() {
     switch(computerChoice) {
         case 1:
             choice = "charmander";
-            img.src = '../resources/charmander.png';
+            setTimeout(function() {
+                img.src = '../resources/charmander.png';
+            }, 500);
             break;
         case 2:
             choice = "squirtle";
-            img.src = '../resources/squirtle.png';
+            setTimeout(function() {
+                img.src = '../resources/squirtle.png';
+            }, 500);
             break;
         default:
             choice = "bulbasaur";
-            img.src = '../resources/bulbasaur.png';
+            setTimeout(function() {
+                img.src = '../resources/bulbasaur.png';
+            }, 500);
             break;
     }
 
@@ -102,17 +108,23 @@ function score(winner, message) {
     let newWidth = 0 ;
 
     const outputMessage = document.querySelector('#text');
-    outputMessage.textContent = message;
+    setTimeout(function() {
+        outputMessage.textContent = message;
+    }, 500);
 
 
     if(winner == "win") {
         playerScore ++;
-        newWidth = currentenemyhp - 30;
-        enemyhp.style.width = newWidth + 'px';
+        setTimeout(function() {
+            newWidth = currentenemyhp - 30;
+            enemyhp.style.width = newWidth + 'px';
+        }, 500);
     }else {
         computerScore ++;
-        newWidth = currentplayerhp - 30;
-        playerhp.style.width = newWidth + 'px';
+        setTimeout(function() {
+            newWidth = currentplayerhp - 30;
+            playerhp.style.width = newWidth + 'px';
+        }, 500);
     }
 
     console.log("Scores:")
@@ -130,13 +142,19 @@ function play(playerMove, computerMove) {
     buttonAudio.play();
     
     if(playerMove == 1) {
-        img.src = '../resources/charmander-back.png';
+        setTimeout(function() {
+            img.src = '../resources/charmander-back.png';
+        }, 500);
     }
     else if(playerMove == 2) {
-        img.src = '../resources/squirtle-back.png';
+        setTimeout(function() {
+            img.src = '../resources/squirtle-back.png';
+        }, 500);
     }
     else{
-        img.src = '../resources/bulbasaur-back.png';
+        setTimeout(function() {
+            img.src = '../resources/bulbasaur-back.png';
+        }, 500);
     }
 
         playRound(playerMove, computerMove);
