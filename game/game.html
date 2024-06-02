@@ -18,7 +18,7 @@
         <div id="header">
             <a href="../index.html"><h2>Rock Paper Scissor</h2></a>
             <div>
-                <button id="refresh-btn"><img src="../resources/refresh-btn.png" alt="refresh" width="30px"></button>
+                <button id="refresh-btn" onclick="displayMoves()"><img src="../resources/refresh-btn.png"alt="refresh" width="30px"></button>
             </div>
         </div>
 
@@ -31,12 +31,20 @@
                 </div>
             </div>
 
+            <div class="pokemon-ctn">
+              <img src="../resources/icon.png" alt="" id="enemy-pokemon">
+            </div>
+
             <div id="player-hp">
                 <div class="hp-ctn">
                     <span id="name">Player</span>
                     <div class="hp"></div>
                     <span>HP 5/5</span>
                 </div>
+            </div>
+
+            <div class="pokemon-ctn">
+                <img src="../resources/icon.png" alt="" id="player-pokemon">
             </div>
         </div>
 
@@ -48,12 +56,14 @@
             </div>
             <div id="move-ctn">
                 <div>
-                    <button id="fire-move">Charmander</button>
-                    <button id="water-move">Squirtle</button>
-                    <button id="grass-move">Bulbasaur</button>
+                    <button onclick="play(1, getComputerChoice())" id="fire-move">Charmander</button>
+                    <button onclick="play(2, getComputerChoice())" id="water-move">Squirtle</button>
+                    <button onclick="play(3, getComputerChoice())" id="grass-move">Bulbasaur</button>
                 </div>
             </div>
         </div>
     </div>
 </body>
+
+<script src="./script.js"></script>
 </html>

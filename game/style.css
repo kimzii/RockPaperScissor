@@ -60,9 +60,10 @@ h2 {
   transform: translateX(-50%);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 90px;
-  grid-row-gap: 100px;
+  grid-template-rows: 2fr 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  font-size: 18px;
 }
 
 #enemy-hp,
@@ -102,6 +103,19 @@ h2 {
   padding: 20px 0 0 20px;
 }
 
+.pokemon-ctn {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.pokemon-ctn img {
+  grid-area: 5 / 3 / 6 / 4;
+}
+
+/*for controls*/
 #controls {
   display: flex;
   align-items: center;
@@ -112,7 +126,7 @@ h2 {
 
 #info-ctn {
   background-color: #70bdcd;
-  width: 500px;
+  width: 100%;
   height: 110px;
   text-align: center;
   padding: 6px;
@@ -168,3 +182,4 @@ h2 {
   margin: auto;
   width: 840px;
 }
+
