@@ -17,29 +17,7 @@ function toggleAudio() {
 
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3) + 1;
-    const img = document.querySelector('#enemy-pokemon'); 
-
-    let choice;
-    img.style.opacity = 0; // Start fade-out
-    setTimeout(function() {
-        switch(computerChoice) {
-            case 1:
-                choice = "charmander";
-                img.src = '../resources/charmander.png';
-                break;
-            case 2:
-                choice = "squirtle";
-                img.src = '../resources/squirtle.png';
-                break;
-            default:
-                choice = "bulbasaur";
-                img.src = '../resources/bulbasaur.png';
-                break;
-        }
-        img.style.opacity = 1; // Start fade-in
-    }, 500);
-
-    return choice;
+    return computerChoice;
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -47,11 +25,11 @@ function playRound(playerSelection, computerSelection) {
     let message;
 
     if(playerSelection == 1) {
-        if(computerSelection == "charmander") {
+        if(computerSelection == 1) {
             console.log("Draw");
             message = "Draw";
             winner = "draw";
-        } else if(computerSelection == "squirtle") {
+        } else if(computerSelection == 2) {
             console.log("You Lose! Charmander is weak against Squirtle");
             message = "You Lose! Charmander is weak against Squirtle";
             winner = "lose";
@@ -63,11 +41,11 @@ function playRound(playerSelection, computerSelection) {
     }
 
     if(playerSelection == 2) {
-        if(computerSelection == "charmander") {
+        if(computerSelection == 1) {
             console.log("You win! Squirtle is strong Charmander");
             message = "You win! Squirtle is strong Charmander   ";
             winner = "win";
-        } else if(computerSelection == "squirtle") {
+        } else if(computerSelection == 2) {
             console.log("Draw");
             message = "Draw";
             winner = "draw";
@@ -79,11 +57,11 @@ function playRound(playerSelection, computerSelection) {
     }
 
     if(playerSelection == 3) {
-        if(computerSelection == "charmander") {
+        if(computerSelection == 1) {
             console.log("You Lose! Bulbasaur is weak against Charmander");
             message = "You Lose! Bulbasaur is weak against Charmander";
             winner = "lose";
-        } else if(computerSelection == "squirtle") {
+        } else if(computerSelection == 2) {
             console.log("You Win! Bulbasaur is strong against Squirtle");
             message = "You Win! Bulbasaur is strong against Squirtle";
             winner = "win";
@@ -101,6 +79,8 @@ function score(winner, message) {
 
     const playerhp = document.querySelector('#player-hp .hp');
     const enemyhp = document.querySelector('#enemy-hp .hp');
+    const playerhpNum = document.querySelector('#player-hp .hp-num');
+    const enemyhpNum = document.querySelector('#enemy-hp .hp-num');
     const currentplayerhp = parseFloat(window.getComputedStyle(playerhp).width);
     const currentenemyhp = parseFloat(window.getComputedStyle(enemyhp).width);
     let newWidth = 0 ;
@@ -108,6 +88,9 @@ function score(winner, message) {
     const outputMessage = document.querySelector('#text');
     setTimeout(function() {
         outputMessage.textContent = message;
+        setTimeout(function() {
+            outputMessage.textContent = "Choose your move...";
+        }, 1500);
     }, 500);
 
         if(winner == "win") {
@@ -115,12 +98,14 @@ function score(winner, message) {
             setTimeout(function() {
             newWidth = currentenemyhp - 30;
             enemyhp.style.width = newWidth + 'px';
+            updateHpText(enemyhpNum, playerScore);
             }, 500);
         }else if (winner == "lose") {
             computerScore ++;
             setTimeout(function() {
                 newWidth = currentplayerhp - 30;
                 playerhp.style.width = newWidth + 'px';
+                updateHpText(playerhpNum, computerScore);
             }, 500);
         }
     
@@ -131,26 +116,61 @@ function score(winner, message) {
 
 }
 
+function updateHpText(element, score) {
+    const hpLeft = 5 - score;
+    element.textContent = `HP ${hpLeft}/5`;
+}
+
 function play(playerMove, computerMove) {
-    const img = document.querySelector('#player-pokemon');
+    const playerimg = document.querySelector('#player-pokemon');
+    const enemyimg = document.querySelector('#enemy-pokemon');
+    const defaultImg = '../resources/icon.png';
     const movectn = document.querySelector('#move-ctn');
     movectn.style.display = 'block';
 
     const buttonAudio = document.getElementById("button-audio");
     buttonAudio.play();
     
-    img.style.opacity = 0;
+    playerimg.style.opacity = 0;
     setTimeout(function() {
         if (playerMove == 1) {
-            img.src = '../resources/charmander-back.png';
-            img.style.opacity = 1; // Start fade-in
+            playerimg.src = '../resources/charmander-back.png';
         } else if (playerMove == 2) {
-            img.src = '../resources/squirtle-back.png';
-            img.style.opacity = 1; // Start fade-in
+            playerimg.src = '../resources/squirtle-back.png';
         } else {
-            img.src = '../resources/bulbasaur-back.png';
-            img.style.opacity = 1; // Start fade-in
+            playerimg.src = '../resources/bulbasaur-back.png';
         }
+
+        playerimg.style.opacity = 1; // Start fade-in
+
+        setTimeout(function() {
+            playerimg.style.opacity = 0; // Start fade-out
+            setTimeout(function() {
+                playerimg.src = defaultImg;
+                playerimg.style.opacity = 1; // Set back to visible for the next time
+            }, 500); // Duration of the fade-out effect
+        }, 1500);
+    }, 500);
+
+    enemyimg.style.opacity = 0;
+    setTimeout(function() {
+        if (computerMove === 1) {
+            enemyimg.src = '../resources/charmander.png';
+        } else if (computerMove === 2) {
+            enemyimg.src = '../resources/squirtle.png';
+        } else {
+            enemyimg.src = '../resources/bulbasaur.png';
+        }
+
+        enemyimg.style.opacity = 1; // Start fade-in
+
+        setTimeout(function() {
+            enemyimg.style.opacity = 0; // Start fade-out
+            setTimeout(function() {
+                enemyimg.src = defaultImg;
+                enemyimg.style.opacity = 1; // Set back to visible for the next time
+            }, 500); // Duration of the fade-out effect
+        }, 1500);
     }, 500);
 
         playRound(playerMove, computerMove);
