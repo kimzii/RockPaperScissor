@@ -132,10 +132,10 @@ function displayMoves() {
 
     // Check if movectn is initially hidden
     if (movectn.style.display === 'none' || movectn.style.display === '') {
-        controls.addEventListener("click", () => {
             movectn.style.display = 'block';
             location.reload();
-        });
+    }else{
+        location.reload();
     }
 }
 
