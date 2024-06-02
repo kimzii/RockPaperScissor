@@ -152,9 +152,6 @@ function checkWinner() {
             outputMessage.textContent = "Game Over! Computer Wins the Game!";
         }
         movectn.style.display = 'none';
-    } else {
-        // Display a message if the game is still ongoing
-        outputMessage.textContent = "Choose your move...";
     }
 }
 
