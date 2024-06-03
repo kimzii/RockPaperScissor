@@ -88,9 +88,11 @@ function score(winner, message) {
     const outputMessage = document.querySelector('#text');
     setTimeout(function() {
         outputMessage.textContent = message;
-        setTimeout(function() {
-            outputMessage.textContent = "Choose your move...";
-        }, 1500);
+        if (playerScore < 5 && computerScore < 5) {
+            setTimeout(function () {
+                outputMessage.textContent = "Choose your move...";
+            }, 2000);
+        }
     }, 500);
 
         if(winner == "win") {
@@ -149,7 +151,7 @@ function play(playerMove, computerMove) {
                 playerimg.src = defaultImg;
                 playerimg.style.opacity = 1; // Set back to visible for the next time
             }, 500); // Duration of the fade-out effect
-        }, 1500);
+        }, 2000);
     }, 500);
 
     enemyimg.style.opacity = 0;
@@ -170,7 +172,7 @@ function play(playerMove, computerMove) {
                 enemyimg.src = defaultImg;
                 enemyimg.style.opacity = 1; // Set back to visible for the next time
             }, 500); // Duration of the fade-out effect
-        }, 1500);
+        }, 2000);
     }, 500);
 
         playRound(playerMove, computerMove);
